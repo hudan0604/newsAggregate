@@ -1,0 +1,50 @@
+@import "../../../styles.scss";
+.sourcesDiv {
+  margin: 3% 8%;
+  width: 90%;
+  height: 65%;
+  overflow: overlay;
+}
+
+.source {
+  background: #ebedf9;
+  width: 20%;
+  margin: 0% 5% 2%;
+  padding: 10px 20px;
+  height: 420px;
+  float: left;
+}
+.sourceKey {
+  font-weight: 700;
+}
+#sourcesTitle {
+  margin: 3% 12% 2%;
+}
+#sourceDesc {
+  margin-top: 5%;
+  height: 55%;
+}
+#sourceLink {
+  margin: 2% 0% 5%;
+}
+.titleToCenter {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.form-control {
+  width: 73% !important;
+  margin: 0 12% !important;
+}
+#numberOfSources {
+  margin: 0% 16%;
+  font-size: 22px;
+  text-align: right;
+  color: #1a98fc;
+  font-weight: bold;
+}
+.source > a {
+  color: none;
+}

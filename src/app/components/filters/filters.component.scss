@@ -1,0 +1,9 @@
+@import "../../../styles.scss";
+
+.filtersDiv {
+  background: $app-green-color;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  height: 100%;
+}

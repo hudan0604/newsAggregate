@@ -1,0 +1,33 @@
+<h1 id="sourcesTitle">Our sources :</h1>
+
+<input
+  (keyup)="searchInSources($event.target.value)"
+  type="text"
+  class="form-control"
+  placeholder="Search..."
+/>
+
+<div class="sourcesDiv">
+  <div *ngIf="loading" class="titleToCenter">
+    <div class="spinner-border text-success " role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="source" *ngFor="let source of sources">
+    <div class="fWbold">{{ source.name }}</div>
+    <div id="sourceDesc">{{ source.description }}</div>
+    <div id="sourceLink">
+      <a href="{{ source.url }}" target="blank">{{ source.url }}</a>
+    </div>
+    <div class="dFlex">
+      <p class="sourceKey fWbold mR5pct">Category :</p>
+      <p>{{ source.category }}</p>
+    </div>
+    <div class="dFlex">
+      <p class="fWbold mR5pct">Country :</p>
+      <p>{{ source.country }}</p>
+    </div>
+  </div>
+</div>
+
+<div id="numberOfSources">{{ sources.length }} sources</div>

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+body,
+html {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+}
+
+$app-green-color: rgb(92, 211, 92);
+
+.dFlex {
+  display: flex;
+}
+.fWbold {
+  font-weight: 700;
+}
+.mR5pct {
+  margin-right: 5%;
+}
