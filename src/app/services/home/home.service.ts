@@ -11,6 +11,6 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   getAllSources(): Observable<any> {
-    return this.http.get(global.sourcesEndpoint);
+    return this.http.get(global.endpoint + "sources?");
   }
 }
