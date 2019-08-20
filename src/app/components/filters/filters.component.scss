@@ -1,9 +1,18 @@
 @import "../../../styles.scss";
 
 .filtersDiv {
-  background: $app-green-color;
+  background: #5cd35c;
   display: flex;
   flex-direction: column;
   float: left;
   height: 100%;
+  margin: 0 4% 0 0%;
+  width: 15%;
+  color: white;
+  font-weight: 700;
+}
+#formFilter {
+  width: 90%;
+  height: 100%;
+  margin: 50% auto;
 }

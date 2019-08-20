@@ -1,1 +1,1 @@
-export const sourcesEndpoint = "https://newsapi.org/v2/sources?";
+export const endpoint = "https://newsapi.org/v2/";

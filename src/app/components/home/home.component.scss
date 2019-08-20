@@ -1,15 +1,15 @@
 @import "../../../styles.scss";
 .sourcesDiv {
-  margin: 3% 8%;
-  width: 90%;
+  margin: 3% 0;
+  width: 77%;
   height: 65%;
   overflow: overlay;
 }
 
 .source {
   background: #ebedf9;
-  width: 20%;
-  margin: 0% 5% 2%;
+  width: 25%;
+  margin: 0% 8% 3% 0%;
   padding: 10px 20px;
   height: 420px;
   float: left;
@@ -18,7 +18,7 @@
   font-weight: 700;
 }
 #sourcesTitle {
-  margin: 3% 12% 2%;
+  margin: 0 0 2%;
 }
 #sourceDesc {
   margin-top: 5%;
@@ -35,8 +35,7 @@
   align-items: center;
 }
 .form-control {
-  width: 73% !important;
-  margin: 0 12% !important;
+  width: 77% !important;
 }
 #numberOfSources {
   margin: 0% 16%;
@@ -47,4 +46,8 @@
 }
 .source > a {
   color: none;
+}
+#titleAndSearch {
+  width: 100%;
+  margin: 3% auto;
 }

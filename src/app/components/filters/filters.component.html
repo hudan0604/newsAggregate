@@ -1,3 +1,92 @@
 <div class="filtersDiv">
-  filters works!
+  <form #filtersForm="ngForm" id="formFilter">
+    <h3>Search articles</h3>
+    <!-- top headlines or everything ? -->
+    <div class="form-group">
+      <select
+        required
+        class="form-control"
+        ngModel
+        name="scope"
+        #scope="ngModel"
+      >
+        <option selected class="displayNone" value="">Scope</option>
+        <option value="top-headlines">Top headlines</option>
+        <option value="everything">Everything</option>
+      </select>
+      <div *ngIf="filtersForm.invalid">Required field</div>
+    </div>
+    <!-- Query -->
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Containing word..."
+        class="form-control"
+        ngModel
+        name="q"
+        #q="ngModel"
+      />
+    </div>
+    <!-- Start Date -->
+    <div class="form-group">
+      <label>Start date</label>
+      <input type="date" ngModel name="from" #from="ngModel" />
+    </div>
+    <!-- End Date -->
+    <div class="form-group">
+      <label>End date</label>
+      <input
+        placeholder="End date"
+        type="date"
+        ngModel
+        name="to"
+        #to="ngModel"
+      />
+    </div>
+    <div class="form-group">
+      <select class="form-control" ngModel name="country" #country="ngModel">
+        <option selected class="displayNone" value="">Country</option>
+        <option *ngFor="let country of uniqueCountries" value="{{ country }}">{{
+          country
+        }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <div *ngIf="isLoading" class="center">
+        <div
+          *ngIf="isLoading"
+          class="spinner-border text-success "
+          role="status"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <!-- Names of the sources -- Times, ESPN... -->
+      <label>Sources</label>
+      <select
+        multiple
+        class="form-control"
+        ngModel
+        name="sources"
+        #sources="ngModel"
+      >
+        <option
+          *ngFor="let id of uniqueSourcesIds; index as i"
+          value="{{ id }}"
+        >
+          {{ uniqueSourcesNames[i] }}
+        </option>
+      </select>
+    </div>
+
+    <button
+      routerLink="/results"
+      type="button"
+      class="btn btn-light"
+      (click)="search(filtersForm.value)"
+      [disabled]="filtersForm.invalid"
+    >
+      Go!
+    </button>
+  </form>
 </div>

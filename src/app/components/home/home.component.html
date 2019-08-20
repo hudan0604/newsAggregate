@@ -1,11 +1,13 @@
-<h1 id="sourcesTitle">Our sources :</h1>
+<div id="titleAndSearch">
+  <h1 id="sourcesTitle">Our sources :</h1>
 
-<input
-  (keyup)="searchInSources($event.target.value)"
-  type="text"
-  class="form-control"
-  placeholder="Search..."
-/>
+  <input
+    (keyup)="searchInSources($event.target.value)"
+    type="text"
+    class="form-control"
+    placeholder="Search..."
+  />
+</div>
 
 <div class="sourcesDiv">
   <div *ngIf="loading" class="titleToCenter">
