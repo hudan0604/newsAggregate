@@ -3,29 +3,20 @@
     <h3>Search articles</h3>
     <!-- top headlines or everything ? -->
     <div class="form-group">
-      <select
-        required
-        class="form-control"
-        ngModel
-        name="scope"
-        #scope="ngModel"
-      >
+      <select required class="form-control" ngModel name="scope" #scope="ngModel">
         <option selected class="displayNone" value="">Scope</option>
         <option value="top-headlines">Top headlines</option>
         <option value="everything">Everything</option>
       </select>
-      <div *ngIf="filtersForm.invalid">Required field</div>
+      <div *ngIf="scope.value === 'top-headlines' && !(country.dirty || sources.dirty || q.dirty)">Enter
+        a search keyword , or select a country, or select a source to be able to launch the search</div>
+      <div *ngIf="scope.value === 'everything' && !(sources.dirty || q.dirty)">Enter
+        a search keyword , or select a source to be able to launch the search</div>
+
     </div>
     <!-- Query -->
     <div class="form-group">
-      <input
-        type="text"
-        placeholder="Containing word..."
-        class="form-control"
-        ngModel
-        name="q"
-        #q="ngModel"
-      />
+      <input type="text" placeholder="Containing word..." class="form-control" ngModel name="q" #q="ngModel" />
     </div>
     <!-- Start Date -->
     <div class="form-group">
@@ -35,16 +26,12 @@
     <!-- End Date -->
     <div class="form-group">
       <label>End date</label>
-      <input
-        placeholder="End date"
-        type="date"
-        ngModel
-        name="to"
-        #to="ngModel"
-      />
+      <input placeholder="End date" type="date" ngModel name="to" #to="ngModel" />
     </div>
+    <!-- Country -->
     <div class="form-group">
-      <select class="form-control" ngModel name="country" #country="ngModel">
+      <select [disabled]="scope.value ==='everything' || (scope.value ==='top-headlines' && sources.dirty)"
+        class="form-control" ngModel name="country" #country="ngModel">
         <option selected class="displayNone" value="">Country</option>
         <option *ngFor="let country of uniqueCountries" value="{{ country }}">{{
           country
@@ -52,40 +39,23 @@
       </select>
     </div>
     <div class="form-group">
-      <div *ngIf="isLoading" class="center">
-        <div
-          *ngIf="isLoading"
-          class="spinner-border text-success "
-          role="status"
-        >
+      <div *ngIf="isLoading" class="center h100">
+        <div *ngIf="isLoading" class="spinner-border text-success " role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
       <!-- Names of the sources -- Times, ESPN... -->
       <label>Sources</label>
-      <select
-        multiple
-        class="form-control"
-        ngModel
-        name="sources"
-        #sources="ngModel"
-      >
-        <option
-          *ngFor="let id of uniqueSourcesIds; index as i"
-          value="{{ id }}"
-        >
+      <select [disabled]="scope.value ==='top-headlines' && country.dirty" multiple class="form-control" ngModel
+        name="sources" #sources="ngModel">
+        <option *ngFor="let id of uniqueSourcesIds; index as i" value="{{ id }}">
           {{ uniqueSourcesNames[i] }}
         </option>
       </select>
     </div>
 
-    <button
-      routerLink="/results"
-      type="button"
-      class="btn btn-light"
-      (click)="search(filtersForm.value)"
-      [disabled]="filtersForm.invalid"
-    >
+    <button routerLink="/results" type="button" class="btn btn-light" (click)="search(filtersForm.value)"
+      [disabled]="(scope.value === 'top-headlines' && !(country.dirty || sources.dirty || q.dirty)) || (scope.value === 'everything' && !( sources.dirty || q.dirty)) || filtersForm.invalid ">
       Go!
     </button>
   </form>

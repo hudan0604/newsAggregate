@@ -10,8 +10,9 @@ import { HomeService } from "src/app/services/home/home.service";
 export class HomeComponent implements OnInit {
   sources = [];
   loading: boolean;
+  addedToFavorites: boolean = false;
 
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService) { }
 
   resetSources() {
     this.loading = true;
@@ -28,6 +29,11 @@ export class HomeComponent implements OnInit {
         return e.name.toLowerCase().startsWith(searchValue);
       });
     });
+  }
+
+  addToFavorites(source: Object) {
+    this.addedToFavorites = !this.addedToFavorites;
+    console.log("the source that I want to add to favs: ", source);
   }
 
   ngOnInit() {

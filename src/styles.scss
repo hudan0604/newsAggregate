@@ -14,22 +14,80 @@ $app-green-color: rgb(92, 211, 92);
 .dFlex {
   display: flex;
 }
+
 .fWbold {
   font-weight: 700;
 }
+
 .mR5pct {
   margin-right: 5%;
 }
+
 .center {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
+.centerVertically {
+  display: flex;
+  align-items: center
+}
+
 .ng-invalid:not(form) {
   box-shadow: 0 0 5px 2px #e84848;
 }
+
 .displayNone {
   display: none;
+}
+
+.w40 {
+  width: 40%
+}
+
+.w50 {
+  width: 50%
+}
+
+.w60 {
+  width: 60%
+}
+
+.w80 {
+  width: 80%
+}
+
+.w90 {
+  width: 90%
+}
+
+.w100 {
+  width: 100%
+}
+
+.h100 {
+  height: 100%;
+}
+
+.fLeft {
+  float: left;
+}
+
+.mAuto {
+  margin: auto
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.fa-star {
+  color: grey;
+  font-size: 20px;
+}
+
+.active {
+  color: rgb(241, 241, 20);
 }

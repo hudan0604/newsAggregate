@@ -1,12 +1,9 @@
+<app-filters></app-filters>
+
 <div id="titleAndSearch">
   <h1 id="sourcesTitle">Our sources :</h1>
 
-  <input
-    (keyup)="searchInSources($event.target.value)"
-    type="text"
-    class="form-control"
-    placeholder="Search..."
-  />
+  <input (keyup)="searchInSources($event.target.value)" type="text" class="form-control" placeholder="Search..." />
 </div>
 
 <div class="sourcesDiv">
@@ -16,7 +13,12 @@
     </div>
   </div>
   <div class="source" *ngFor="let source of sources">
-    <div class="fWbold">{{ source.name }}</div>
+    <div class="dFlex">
+      <div class="fWbold w90">{{ source.name }}</div>
+      <!-- Add to favorites -->
+      <i (click)="addToFavorites(source)" class="fa fa-star pointer centerVertically" aria-hidden="true"
+        [ngClass]="{'active':addedToFavorites}"></i>
+    </div>
     <div id="sourceDesc">{{ source.description }}</div>
     <div id="sourceLink">
       <a href="{{ source.url }}" target="blank">{{ source.url }}</a>

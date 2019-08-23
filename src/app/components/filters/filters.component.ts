@@ -23,12 +23,10 @@ export class FiltersComponent implements OnInit {
   ) {}
 
   search(search) {
-    let array = Object.entries(search);
-    console.log(array);
+    let array = Object.entries(search);   
     let filters = array.filter((e: any) => {
       return (e = e[1].length > 0);
-    });
-    console.log("suppr blanks: ", filters);
+    });    
 
     let index: number;
     // find the array whose values are the sources
@@ -40,12 +38,11 @@ export class FiltersComponent implements OnInit {
     }
     let url: string = filters[0][1] + "?";
     filters.splice(0, 1);
-    for (let elt in filters) {
-      console.log(filters[elt][0]);
+    for (let elt in filters) {      
       url += filters[elt][0] + "=" + filters[elt][1] + "&";
     }
     url = url.slice(0, url.length - 1);
-    this.filterService.getArticles(url);
+    this.filterService.sendUrl(url);
   }
   getSources(): void {
     this.isLoading = true;
