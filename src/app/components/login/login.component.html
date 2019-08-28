@@ -8,7 +8,7 @@
       [ngClass]="{'opacity50':clickedOnLogin,'opacity100':clickedOnSignUp}">Sign Up</div>
   </div>
   <!-- login div - for existing users -->
-  <div *ngIf="clickedOnLogin" class="w50 mTop5pct">
+  <div *ngIf="clickedOnLogin" class="mTop5pct">
     <form #loginForm="ngForm">
 
       <div class="form-group">
@@ -27,7 +27,7 @@
   </div>
   <!-- new User div -->
   <div *ngIf="clickedOnSignUp" class="mTop5pct">
-    <h4>New to our app ? Create your account !</h4>
+    <h5>New to our app ? Create your account !</h5>
     <form [formGroup]="registerForm">
       <div class="form-group">
         <input type="text" placeholder="Username" class="form-control" formControlName="username" />
@@ -35,12 +35,12 @@
       <div class="form-group">
         <input type="password" placeholder="Password" class="form-control" formControlName="password" />
       </div>
-      <div *ngIf="registerForm.get('password').hasError('minlength')">Password should be 8
+      <div class="invalidField" *ngIf="registerForm.get('password').hasError('minlength')">Password should be 8
         characters min</div>
       <div class="form-group">
         <input type="password" placeholder="Confirm password" class="form-control" formControlName="passwordConfirm" />
       </div>
-      <div
+      <div class="invalidField"
         *ngIf="registerForm.get('passwordConfirm').dirty && registerForm.get('passwordConfirm').value !== registerForm.get('password').value">
         Password doesn't
         match !!!

@@ -1,4 +1,5 @@
 @import "../../../styles.scss";
+
 .sourcesDiv {
   margin: 3% 0;
   width: 77%;
@@ -14,19 +15,24 @@
   height: 420px;
   float: left;
 }
+
 .sourceKey {
   font-weight: 700;
 }
+
 #sourcesTitle {
   margin: 0 0 2%;
 }
+
 #sourceDesc {
   margin-top: 5%;
   height: 55%;
 }
+
 #sourceLink {
   margin: 2% 0% 5%;
 }
+
 .titleToCenter {
   display: flex;
   width: 100%;
@@ -34,9 +40,11 @@
   justify-content: center;
   align-items: center;
 }
+
 .form-control {
   width: 77% !important;
 }
+
 #numberOfSources {
   margin: 0% 16%;
   font-size: 22px;
@@ -44,10 +52,12 @@
   color: #1a98fc;
   font-weight: bold;
 }
-.source > a {
+
+.source>a {
   color: none;
 }
+
 #titleAndSearch {
   width: 100%;
-  margin: 3% auto;
+  margin: 5% auto;
 }

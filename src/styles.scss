@@ -110,5 +110,15 @@ $app-green-color: rgb(92, 211, 92);
 }
 
 .success {
-  color: green
+  color: green;
+  margin: -3% 0% 2%;
+}
+
+.tAlignRight {
+  text-align: right
+}
+
+.invalidField {
+  color: #e84848;
+  margin: -3% 0% 2%;
 }
