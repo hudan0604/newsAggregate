@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body,
 html {
@@ -90,4 +91,24 @@ $app-green-color: rgb(92, 211, 92);
 
 .active {
   color: rgb(241, 241, 20);
+}
+
+.mTop5pct {
+  margin-top: 5%
+}
+
+.mTop10pct {
+  margin-top: 10%
+}
+
+.opacity50 {
+  opacity: 0.5;
+}
+
+.opacity100 {
+  opacity: 1;
+}
+
+.success {
+  color: green
 }

@@ -1,3 +1,64 @@
-<p>
-  login works!
-</p>
+<div class="mAuto mTop10pct">
+  <div class="dFlex">
+    <div (click)="loginClicked()" class="w50 loginLabels pointer"
+      [ngClass]="{'opacity50':clickedOnSignUp,'opacity100':clickedOnLogin}">
+      Log in
+    </div>
+    <div (click)="signUpClicked()" class="w50 loginLabels pointer"
+      [ngClass]="{'opacity50':clickedOnLogin,'opacity100':clickedOnSignUp}">Sign Up</div>
+  </div>
+  <!-- login div - for existing users -->
+  <div *ngIf="clickedOnLogin" class="w50 mTop5pct">
+    <form #loginForm="ngForm">
+
+      <div class="form-group">
+        <input type="text" placeholder="Id..." class="form-control" ngModel name="id" #id="ngModel" required />
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Password..." class="form-control" ngModel name="password" #password="ngModel"
+          required />
+      </div>
+
+      <button routerLink="" type="button" class="btn btn-light" (click)="login(loginForm.value)"
+        [disabled]="loginForm.invalid ">
+        Login
+      </button>
+    </form>
+  </div>
+  <!-- new User div -->
+  <div *ngIf="clickedOnSignUp" class="mTop5pct">
+    <h4>New to our app ? Create your account !</h4>
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <input type="text" placeholder="Username" class="form-control" formControlName="username" />
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Password" class="form-control" formControlName="password" />
+      </div>
+      <div *ngIf="registerForm.get('password').hasError('minlength')">Password should be 8
+        characters min</div>
+      <div class="form-group">
+        <input type="password" placeholder="Confirm password" class="form-control" formControlName="passwordConfirm" />
+      </div>
+      <div
+        *ngIf="registerForm.get('passwordConfirm').dirty && registerForm.get('passwordConfirm').value !== registerForm.get('password').value">
+        Password doesn't
+        match !!!
+      </div>
+      <div
+        *ngIf="registerForm.get('passwordConfirm').value !== '' && registerForm.get('passwordConfirm').value === registerForm.get('password').value"
+        class="success">
+        Passwords match !
+      </div>
+      <button
+        [disabled]="registerForm.invalid || (registerForm.get('passwordConfirm').value !== '' && registerForm.get('passwordConfirm').value !== registerForm.get('password').value)"
+        type="button" routerLink="/register" (click)="register(registerForm.value)" class="btn btn-light">
+        Register
+      </button>
+    </form>
+
+
+
+  </div>
+
+</div>

@@ -1,4 +1,4 @@
 <div id='topbar'>
-  <i [routerLink]="isUserConnected() ? ['/profile'] : ['/login'] " class="fa fa-user userProfileIcon pointer"
+  <i (click)="isUserConnected() ? routerLink='/profile' : openDialog()" class="fa fa-user userProfileIcon pointer"
     aria-hidden="true"></i>
 </div>

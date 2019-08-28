@@ -9,4 +9,5 @@ export class AuthenticationService {
   isUserConnected(): boolean {
     return localStorage.getItem('users') ? true : false;
   }
+
 }
