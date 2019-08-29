@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { HomeService } from 'app/services/home/home.service';
+import { FilterService } from 'app/services/filter/filter.service';
 
-import { FilterService } from "src/app/services/filter/filter.service";
-import { HomeService } from "src/app/services/home/home.service";
+
 
 @Component({
   selector: "app-filters",
@@ -20,13 +21,13 @@ export class FiltersComponent implements OnInit {
   constructor(
     private homeService: HomeService,
     private filterService: FilterService
-  ) {}
+  ) { }
 
   search(search) {
-    let array = Object.entries(search);   
+    let array = Object.entries(search);
     let filters = array.filter((e: any) => {
       return (e = e[1].length > 0);
-    });    
+    });
 
     let index: number;
     // find the array whose values are the sources
@@ -38,7 +39,7 @@ export class FiltersComponent implements OnInit {
     }
     let url: string = filters[0][1] + "?";
     filters.splice(0, 1);
-    for (let elt in filters) {      
+    for (let elt in filters) {
       url += filters[elt][0] + "=" + filters[elt][1] + "&";
     }
     url = url.slice(0, url.length - 1);

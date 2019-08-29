@@ -36,7 +36,7 @@ $app-green-color: rgb(92, 211, 92);
   align-items: center
 }
 
-.ng-invalid:not(form) {
+.invalid:not(form) {
   box-shadow: 0 0 5px 2px #e84848;
 }
 
@@ -118,7 +118,12 @@ $app-green-color: rgb(92, 211, 92);
   text-align: right
 }
 
-.invalidField {
+.errorMessageDivStyle {
   color: #e84848;
   margin: -3% 0% 2%;
+}
+
+.invalidFormField {
+  box-shadow: 0 0 5px 2px #e84848;
+  border: #e84848;
 }

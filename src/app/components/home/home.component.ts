@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { HomeService } from "src/app/services/home/home.service";
+import { HomeService } from "app/services/home/home.service";
 
 @Component({
   selector: "app-home",

@@ -33,14 +33,17 @@
         <input type="text" placeholder="Username" class="form-control" formControlName="username" />
       </div>
       <div class="form-group">
-        <input type="password" placeholder="Password" class="form-control" formControlName="password" />
+        <input type="password" placeholder="Password" class="form-control"
+          [class.invalidFormField]="registerForm.get('password').hasError('minlength')" formControlName="password" />
       </div>
-      <div class="invalidField" *ngIf="registerForm.get('password').hasError('minlength')">Password should be 8
+      <div class="errorMessageDivStyle" *ngIf="registerForm.get('password').hasError('minlength')">Password should be 8
         characters min</div>
       <div class="form-group">
-        <input type="password" placeholder="Confirm password" class="form-control" formControlName="passwordConfirm" />
+        <input
+          [class.invalidFormField]="registerForm.get('passwordConfirm').dirty && registerForm.get('passwordConfirm').value !== registerForm.get('password').value"
+          type="password" placeholder="Confirm password" class="form-control" formControlName="passwordConfirm" />
       </div>
-      <div class="invalidField"
+      <div class="errorMessageDivStyle"
         *ngIf="registerForm.get('passwordConfirm').dirty && registerForm.get('passwordConfirm').value !== registerForm.get('password').value">
         Password doesn't
         match !!!

@@ -15,10 +15,18 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FiltersComponent, ResultsComponent, TopbarComponent, ProfileComponent, LoginComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatDialogModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatDialogModule, AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule.enablePersistence(), AngularFireStorageModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
